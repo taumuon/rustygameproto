@@ -1,0 +1,12 @@
+[package]
+name = "rusty_game_proto"
+version = "0.1.0"
+authors = ["garym <gary@taumuon.co.uk>"]
+
+
+[dependencies]
+glium = "*"
+image = "*"
+nalgebra = "*"
+ncollide = "*"
+nphysics3d = "*"
