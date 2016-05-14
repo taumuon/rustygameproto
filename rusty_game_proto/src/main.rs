@@ -17,7 +17,9 @@ fn main() {
     world.set_gravity(Vector3::new(0.0, -9.81, 0.0));
 
     let plane_geom = Plane::new(Vector3::new(0.0, 1.0, 0.0));
-    world.add_rigid_body(RigidBody::new_static(plane_geom, 0.8, 0.1));
+    let mut plane_body = RigidBody::new_static(plane_geom, 1.0, 0.0);
+    plane_body.append_translation(&Vector3::new(0.0, -2.0, 0.0));
+    world.add_rigid_body(plane_body);
 
     // collision/physics geometery is a simple cube
     let xa = 0.0;
@@ -25,7 +27,7 @@ fn main() {
     let za = 2.0;
     let rad    = 1.0;
     let geom   = Cuboid::new(Vector3::new(rad - 0.04, rad - 0.04, rad - 0.04));
-    let mut rb = RigidBody::new_dynamic(geom, 1.0, 0.3, 0.5);
+    let mut rb = RigidBody::new_dynamic(geom, 1.0, 1.0, 0.0);
     rb.append_translation(&Vector3::new(xa, ya, za));
     let rb_handle = world.add_rigid_body(rb);
 
